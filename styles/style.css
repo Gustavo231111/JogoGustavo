@@ -1,0 +1,934 @@
+/* ============================================
+   PIXELFORGE STUDIOS - ESTILOS CSS
+   Todas as classes em português com comentários
+   ============================================ */
+
+/* --- VARIÁVEIS DE CORES (TEMA CLARO - PADRÃO) --- */
+:root {
+    /* Cores de fundo */
+    --fundo-gradiente: linear-gradient(-45deg, #0A0A0A, #1a103c, #2b003b, #000000);
+    --fundo-solido: #0A0A0A;
+    --fundo-card: rgba(255, 255, 255, 0.05);
+    --fundo-entrada: rgba(255, 255, 255, 0.1);
+    --fundo-modal: linear-gradient(135deg, #1a103c, #2b003b);
+    --fundo-navegacao: rgba(10, 10, 10, 0.9);
+    --fundo-rodape: #050505;
+    --fundo-subtitulo: rgba(61, 52, 139, 0.3);
+    
+    /* Cores de texto */
+    --texto-principal: #FFFFFF;
+    --texto-secundario: #ddd;
+    --texto-suave: #aaa;
+    
+    /* Cores neon para destaque */
+    --roxo-principal: #3D348B;
+    --azul-neon: #00F5FF;
+    --rosa-neon: #FF0055;
+    --verde-neon: #00ff9d;
+    --dourado: #FFD700;
+    --roxo-neon: #9D4EDD;
+    
+    /* Cores de bordas e sombras */
+    --cor-borda: #555;
+    --borda-card: #3D348B;
+    --sombra-neon: 0 0 15px var(--azul-neon);
+    
+    /* Grade de fundo */
+    --cor-grade: rgba(0, 245, 255, 0.1);
+    --opacidade-grade: 0.3;
+    
+    /* Fontes */
+    --fonte-titulo: 'Press Start 2P', cursive;
+    --fonte-corpo: 'Fredoka', sans-serif;
+}
+
+/* --- VARIÁVEIS DE CORES (TEMA ESCURO - GÓTICO) --- */
+body.modo-escuro {
+    --fundo-gradiente: #000000;
+    --fundo-solido: #000000;
+    --fundo-card: rgba(20, 10, 30, 0.95);
+    --fundo-entrada: rgba(30, 15, 45, 0.9);
+    --fundo-modal: linear-gradient(135deg, #0a0010, #1a0520);
+    --fundo-navegacao: rgba(0, 0, 0, 0.98);
+    --fundo-rodape: #000000;
+    --fundo-subtitulo: rgba(75, 46, 107, 0.4);
+    
+    --texto-principal: #e8e0f0;
+    --texto-secundario: #b8a8c8;
+    --texto-suave: #786888;
+    
+    --roxo-principal: #1a0a2e;
+    --azul-neon: #6B4C9A;
+    --rosa-neon: #8B2E8B;
+    --verde-neon: #2D5A3D;
+    --dourado: #8B7D2E;
+    --roxo-neon: #4B2E6B;
+    
+    --cor-borda: #2a1a3a;
+    --borda-card: #3a1a4a;
+    --sombra-neon: 0 0 15px var(--roxo-neon);
+    
+    --cor-grade: rgba(107, 76, 154, 0.08);
+    --opacidade-grade: 0.15;
+}
+
+/* --- RESET GERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* --- CORPO DA PÁGINA --- */
+body {
+    background-color: var(--fundo-solido);
+    background: var(--fundo-gradiente);
+    background-size: 400% 400%;
+    color: var(--texto-principal);
+    font-family: var(--fonte-corpo);
+    overflow-x: hidden;
+    animation: animacaoFundo 15s ease infinite;
+    transition: all 0.5s ease;
+}
+
+body.modo-escuro {
+    animation: none;
+    background: var(--fundo-solido);
+}
+
+@keyframes animacaoFundo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- GRADE CYBERPUNK DE FUNDO --- */
+.grade-cyber {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(var(--cor-grade) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cor-grade) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--opacidade-grade);
+    transition: opacity 0.5s ease;
+}
+
+/* ============================================
+   BOTÃO DE ALTERNÂNCIA DE TEMA
+   ============================================ */
+.botao-tema {
+    position: fixed;
+    top: 120px;
+    left: 25px;
+    z-index: 1001;
+    background: var(--roxo-principal);
+    border: 3px solid var(--azul-neon);
+    color: var(--texto-principal);
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-family: var(--fonte-titulo);
+    font-size: 0.65rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--sombra-neon);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.botao-tema:hover {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 0 25px var(--azul-neon);
+}
+
+body.modo-escuro .botao-tema {
+    background: #1a0a2e;
+    border-color: var(--roxo-neon);
+    box-shadow: 0 0 20px var(--roxo-neon);
+}
+
+body.modo-escuro .botao-tema:hover {
+    background: var(--roxo-neon);
+    box-shadow: 0 0 30px var(--roxo-neon);
+}
+
+/* ============================================
+   PERSONAGEM PIXER (MASCOTE)
+   ============================================ */
+#container-pixer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.personagem-flutuante {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 0 15px var(--rosa-neon));
+    transition: transform 0.3s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+.balao-fala {
+    background: var(--texto-principal);
+    color: #0A0A0A;
+    padding: 20px;
+    border-radius: 25px;
+    border: 4px solid var(--rosa-neon);
+    margin-bottom: 15px;
+    max-width: 280px;
+    font-family: var(--fonte-titulo);
+    font-size: 0.8rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px var(--rosa-neon);
+    text-align: center;
+}
+
+.balao-fala.visivel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.seta-balao {
+    position: absolute;
+    bottom: -14px;
+    right: 50px;
+    width: 25px;
+    height: 25px;
+    background: var(--texto-principal);
+    transform: rotate(45deg);
+    border-right: 4px solid var(--rosa-neon);
+    border-bottom: 4px solid var(--rosa-neon);
+}
+
+body.modo-escuro .balao-fala {
+    background: #1a0a2e;
+    color: var(--texto-principal);
+    border-color: var(--roxo-neon);
+}
+
+body.modo-escuro .seta-balao {
+    background: #1a0a2e;
+    border-color: var(--roxo-neon);
+}
+
+/* ============================================
+   ANIMAÇÕES DE TEXTO
+   ============================================ */
+.texto-flutuante { animation: flutuarTexto 4s ease-in-out infinite; }
+.titulo-flutuante { animation: flutuarTitulo 3s ease-in-out infinite; }
+
+@keyframes flutuarTexto {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes flutuarTitulo {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animacao-pulo { animation: pular 2s infinite; }
+
+@keyframes pular {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* ============================================
+   CABEÇALHO E NAVEGAÇÃO
+   ============================================ */
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.barra-navegacao {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--fundo-navegacao);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 3px solid var(--azul-neon);
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   LOGO PERSONALIZADA PIXELFORGE STUDIOS
+   ============================================ */
+.logo-personalizada {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(61, 52, 139, 0.3), rgba(0, 245, 255, 0.1));
+    border: 3px solid var(--azul-neon);
+    border-radius: 15px;
+    box-shadow: 0 0 20px var(--azul-neon), inset 0 0 20px rgba(0, 245, 255, 0.2);
+    animation: pulsarLogo 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-personalizada::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--azul-neon), var(--rosa-neon), var(--azul-neon));
+    border-radius: 15px;
+    opacity: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.logo-personalizada:hover::before {
+    opacity: 0.5;
+    animation: girarBorda 3s linear infinite;
+}
+
+@keyframes pulsarLogo {
+    0%, 100% { 
+        box-shadow: 0 0 20px var(--azul-neon), inset 0 0 20px rgba(0, 245, 255, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 30px var(--azul-neon), inset 0 0 30px rgba(0, 245, 255, 0.3);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes girarBorda {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Emoji do controle */
+.logo-emoji {
+    font-size: 2rem;
+    animation: girarEmoji 4s linear infinite;
+    filter: drop-shadow(0 0 10px var(--azul-neon));
+}
+
+@keyframes girarEmoji {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-10deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+}
+
+/* Texto principal "PIXEL" */
+.logo-texto-principal {
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--azul-neon);
+    text-shadow: 3px 3px 0px var(--roxo-principal), 0 0 15px var(--azul-neon);
+    letter-spacing: 2px;
+    animation: brilharTexto 2s ease-in-out infinite;
+}
+
+/* Texto secundário "FORGE" */
+.logo-texto-secundario {
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--rosa-neon);
+    text-shadow: 3px 3px 0px var(--roxo-principal), 0 0 15px var(--rosa-neon);
+    letter-spacing: 2px;
+    animation: brilharTexto 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes brilharTexto {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Linha divisória */
+.logo-linha {
+    width: 3px;
+    height: 35px;
+    background: linear-gradient(to bottom, var(--azul-neon), var(--rosa-neon));
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--azul-neon);
+}
+
+/* Subtexto "STUDIOS" */
+.logo-subtexto {
+    font-family: var(--fonte-titulo);
+    font-size: 0.7rem;
+    color: var(--dourado);
+    text-shadow: 2px 2px 0px var(--roxo-principal);
+    letter-spacing: 3px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+body.modo-escuro .logo-personalizada {
+    background: linear-gradient(135deg, rgba(26, 10, 46, 0.5), rgba(107, 76, 154, 0.1));
+    border-color: var(--roxo-neon);
+    box-shadow: 0 0 20px var(--roxo-neon), inset 0 0 20px rgba(107, 76, 154, 0.2);
+}
+
+body.modo-escuro .logo-emoji {
+    filter: drop-shadow(0 0 10px var(--roxo-neon));
+}
+
+body.modo-escuro .logo-texto-principal {
+    color: var(--roxo-neon);
+    text-shadow: 3px 3px 0px var(--roxo-principal), 0 0 15px var(--roxo-neon);
+}
+
+body.modo-escuro .logo-texto-secundario {
+    color: var(--rosa-neon);
+    text-shadow: 3px 3px 0px var(--roxo-principal), 0 0 15px var(--rosa-neon);
+}
+
+body.modo-escuro .logo-linha {
+    background: linear-gradient(to bottom, var(--roxo-neon), var(--rosa-neon));
+    box-shadow: 0 0 10px var(--roxo-neon);
+}
+
+body.modo-escuro .logo-subtexto {
+    color: var(--dourado);
+    text-shadow: 2px 2px 0px var(--roxo-principal);
+}
+
+/* ============================================
+   LINKS DE NAVEGAÇÃO
+   ============================================ */
+.lista-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.link-navegacao {
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-family: var(--fonte-titulo);
+    font-size: 0.7rem;
+    transition: all 0.3s;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.link-navegacao:hover { 
+    color: var(--rosa-neon); 
+    background: rgba(255, 0, 85, 0.2);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   CONTEÚDO PRINCIPAL (HERO)
+   ============================================ */
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.titulo-principal {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+    text-shadow: 5px 5px 0px var(--roxo-principal), 0 0 30px var(--azul-neon);
+    animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-2px, 2px); }
+    94% { transform: translate(2px, -2px); }
+    96% { transform: translate(-2px, 0); }
+    98% { transform: translate(2px, 0); }
+}
+
+/* SUBTÍTULO COM ESTILO GAMER */
+.subtitulo-gamer {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--fundo-subtitulo);
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: 2px solid var(--azul-neon);
+    margin-bottom: 0;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.subtitulo-gamer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+.subtitulo-gamer i {
+    color: var(--rosa-neon);
+    font-size: 1.2rem;
+    animation: pulsar 2s infinite;
+}
+
+.subtitulo-gamer span {
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    font-weight: 600;
+}
+
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+body.modo-escuro .subtitulo-gamer {
+    border-color: var(--roxo-neon);
+    box-shadow: 0 0 20px rgba(107, 76, 154, 0.3);
+}
+
+body.modo-escuro .subtitulo-gamer:hover {
+    box-shadow: 0 0 30px rgba(107, 76, 154, 0.5);
+}
+
+body.modo-escuro .subtitulo-gamer i {
+    color: var(--roxo-neon);
+}
+
+/* BOTÃO NEON */
+.botao-neon {
+    padding: 18px 35px;
+    background: transparent;
+    border: 3px solid var(--azul-neon);
+    color: var(--azul-neon);
+    font-family: var(--fonte-titulo);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: var(--sombra-neon);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.botao-neon:hover {
+    background: var(--azul-neon);
+    color: #000;
+    box-shadow: 0 0 30px var(--azul-neon);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   SEÇÕES GERAIS
+   ============================================ */
+section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.titulo-secao {
+    font-family: var(--fonte-titulo);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    color: var(--texto-principal);
+    text-shadow: 4px 4px 0px var(--roxo-principal);
+}
+
+.texto-neon { 
+    color: var(--rosa-neon); 
+    text-shadow: 0 0 20px var(--rosa-neon);
+    display: inline-block;
+    animation: pulsarNeon 2s infinite;
+}
+
+@keyframes pulsarNeon { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+
+/* ============================================
+   CARDS DE JOGOS
+   ============================================ */
+.grade-jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.card-jogo {
+    background: var(--fundo-card);
+    border: 3px solid var(--borda-card);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-jogo:hover {
+    transform: translateY(-15px) rotate(2deg);
+    border-color: var(--azul-neon);
+    box-shadow: 0 20px 40px rgba(0, 245, 255, 0.4);
+}
+
+.imagem-card {
+    height: 200px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imagem-real img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.card-jogo:hover .imagem-real img {
+    transform: scale(1.1);
+}
+
+.sobreposicao-card {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+    font-family: var(--fonte-titulo);
+    color: var(--azul-neon);
+    font-size: 1rem;
+    gap: 10px;
+    z-index: 5;
+}
+
+.card-jogo:hover .sobreposicao-card { opacity: 1; }
+
+.info-card { 
+    padding: 25px; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-card h3 { 
+    font-family: var(--fonte-titulo); 
+    font-size: 1rem; 
+    color: var(--azul-neon);
+}
+
+.genero { 
+    font-size: 0.8rem; 
+    color: var(--rosa-neon); 
+    font-family: var(--fonte-titulo);
+    background: rgba(255, 0, 85, 0.1);
+    padding: 5px 12px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.avaliacao-card { 
+    background: linear-gradient(135deg, var(--dourado), #FFA500);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #000;
+    width: fit-content;
+    font-family: var(--fonte-titulo);
+    font-size: 0.75rem;
+}
+
+.descricao-curta { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    color: var(--texto-secundario);
+}
+
+.meta-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px dashed rgba(255,255,255,0.2);
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.meta-card span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ============================================
+   TRAILER DO YOUTUBE
+   ============================================ */
+.container-video {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    border: 5px solid var(--rosa-neon);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 0, 85, 0.4);
+    overflow: hidden;
+    background: #000;
+}
+
+.container-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================
+   DEPOIMENTOS DA COMUNIDADE
+   ============================================ */
+.depoimentos {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-depoimento {
+    background: linear-gradient(135deg, var(--roxo-principal), #2b003b);
+    padding: 25px;
+    border-radius: 25px;
+    width: 320px;
+    box-shadow: 8px 8px 0px var(--azul-neon);
+    border: 3px solid var(--azul-neon);
+    transition: all 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-depoimento:hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 12px 12px 0px var(--rosa-neon);
+    border-color: var(--rosa-neon);
+}
+
+.avatar-cartoon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid var(--rosa-neon);
+    margin-bottom: 15px;
+    background: white;
+}
+
+.card-depoimento p {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--texto-secundario);
+}
+
+.card-depoimento h4 {
+    color: var(--azul-neon);
+    font-family: var(--fonte-titulo);
+    font-size: 0.75rem;
+}
+
+.avaliacao-usuario {
+    color: var(--dourado);
+    margin-top: 12px;
+}
+
+/* ============================================
+   FORMULÁRIO DE SUPORTE COM API CEP
+   ============================================ */
+#formulario-contato {
+    max-width: 650px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.6);
+    padding: 50px;
+    border-radius: 30px;
+    border: 4px solid var(--azul-neon);
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.grupo-campo { margin-bottom: 25px; }
+
+.grupo-campo label { 
+    display: block; 
+    margin-bottom: 10px; 
+    font-family: var(--fonte-titulo); 
+    color: var(--rosa-neon); 
+}
+
+.grupo-campo input, 
+.grupo-campo textarea {
+    width: 100%;
+    padding: 15px;
+    background: var(--fundo-entrada);
+    border: 3px solid var(--cor-borda);
+    border-radius: 15px;
+    color: var(--texto-principal);
+    font-family: var(--fonte-corpo);
+    transition: all 0.3s;
+}
+
+.grupo-campo input:focus, 
+.grupo-campo textarea:focus {
+    outline: none;
+    border-color: var(--azul-neon);
+    box-shadow: var(--sombra-neon);
+}
+
+/* Campos preenchidos automaticamente (readonly) */
+.grupo-campo input:read-only {
+    background: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+}
+
+/* ============================================
+   RODAPÉ E REDES SOCIAIS
+   ============================================ */
+footer {
+    text-align: center;
+    padding: 50px;
+    background: var(--fundo-rodape);
+    margin-top: 50px;
+    font-family: var(--fonte-titulo);
+    font-size: 0.7rem;
+    color: #777;
+    border-top: 3px solid var(--roxo-principal);
+}
+
+.icones-sociais {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icone-social {
+    color: var(--azul-neon);
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.icone-social:hover { 
+    color: var(--rosa-neon); 
+    transform: scale(1.2); 
+}
+
+/* ============================================
+   RESPONSIVIDADE (TELAS MENORES)
+   ============================================ */
+@media (max-width: 768px) {
+    #container-pixer {
+        bottom: 10px;
+        right: 10px;
+        transform: scale(0.7);
+    }
+    
+    .titulo-principal { font-size: 1.8rem; }
+    
+    .subtitulo-gamer {
+        flex-direction: column;
+        padding: 12px 20px;
+        gap: 8px;
+    }
+    
+    .subtitulo-gamer span {
+        font-size: 0.95rem;
+    }
+    
+    .barra-navegacao { 
+        padding: 15px; 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    
+    .lista-links { 
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .botao-tema {
+        top: 100px;
+        left: 15px;
+        font-size: 0.55rem;
+    }
+    
+    /* Logo responsiva - menor em telas pequenas */
+    .logo-personalizada {
+        transform: scale(0.8);
+    }
+    
+    .titulo-secao { font-size: 1.5rem; }
+    #formulario-contato { padding: 30px 20px; }
+    .card-depoimento { width: 100%; max-width: 350px; }
+    .meta-card { flex-direction: column; gap: 8px; }
+    
+    .imagem-real img {
+        object-position: center top;
+    }
+}

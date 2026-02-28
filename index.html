@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Studios | Level Up Your Reality</title>
+    
+    <!-- Importando fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Importando ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link para o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Grade de fundo estilo cyberpunk -->
+    <div class="grade-cyber"></div>
+
+    <!-- Botão para alternar tema escuro/claro -->
+    <button id="botao-tema" class="botao-tema" title="Alternar tema">
+        <i class="fa-solid fa-moon"></i>
+        <span class="texto-tema">Modo Escuro</span>
+    </button>
+
+    <!-- Personagem Pixer (mascote do site) -->
+    <div id="container-pixer">
+        <div id="balao-fala" class="balao-fala">
+            <p id="texto-pixer">Bem vindo, Player! 💜</p>
+            <div class="seta-balao"></div>
+        </div>
+        <!-- Imagem da personagem Pixer -->
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712038.png" alt="Pixer Mascot" id="personagem-pixer" class="personagem-flutuante">
+    </div>
+
+    <!-- Cabeçalho principal do site -->
+    <header id="inicio">
+        <!-- Barra de navegação superior -->
+        <nav class="barra-navegacao">
+            <!-- LOGO PERSONALIZADA EM HTML/CSS -->
+            <div class="logo-personalizada">
+                <span class="logo-emoji">🎮</span>
+                <span class="logo-texto-principal">PIXEL</span>
+                <span class="logo-texto-secundario">FORGE</span>
+                <span class="logo-linha"></span>
+                <span class="logo-subtexto">STUDIOS</span>
+            </div>
+            
+            <!-- Lista de links de navegação -->
+            <ul class="lista-links">
+                <li><a href="#jogos" class="link-navegacao"><i class="fa-solid fa-gamepad"></i> Jogos</a></li>
+                <li><a href="#trailer" class="link-navegacao"><i class="fa-solid fa-film"></i> Trailer</a></li>
+                <li><a href="#comunidade" class="link-navegacao"><i class="fa-solid fa-users"></i> Comunidade</a></li>
+                <li><a href="#suporte" class="link-navegacao"><i class="fa-solid fa-envelope"></i> Suporte</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Conteúdo principal da página inicial -->
+        <div class="conteudo-principal">
+            <h1 class="titulo-principal texto-flutuante" data-text="FORJANDO SONHOS EM PIXELS">FORJANDO SONHOS EM PIXELS</h1>
+            
+            <!-- Subtítulo com estilo gamer -->
+            <div class="subtitulo-gamer">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Onde a magia do código encontra a arte do jogo</span>
+                <i class="fa-solid fa-joystick"></i>
+            </div>
+            
+            <!-- Botão para explorar os jogos -->
+            <a href="#jogos" class="botao-neon animacao-pulo">Explorar Mundos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <!-- Seção de jogos -->
+    <section id="jogos">
+        <h2 class="titulo-secao texto-flutuante">NOSSOS <span class="texto-neon">JOGOS</span></h2>
+        <div class="grade-jogos">
+            
+            <!-- Card do jogo 1: CyberKitty Run -->
+            <div class="card-jogo" dados-fala="CyberKitty é demais! 🐱💻" 
+                 dados-titulo="CyberKitty Run" 
+                 dados-genero="Diversão" 
+                 dados-avaliacao="4.8"
+                 dados-descricao="Em um futuro distópico onde a fofura foi banida pela corporação The Void, você assume o controle de um gato cibernético de elite."
+                 dados-lancamento="2024"
+                 dados-plataformas="PC, Mobile, Switch">
+                
+                <!-- Imagem do jogo -->
+                <div class="imagem-card imagem-real">
+                    <img src="assets/CyberKittyRun.png" alt="CyberKitty Run">
+                    <!-- Sobreposição com botão Jogar Agora -->
+                    <div class="sobreposicao-card">
+                        <i class="fa-solid fa-play"></i> Jogar Agora
+                    </div>
+                </div>
+                
+                <!-- Informações do jogo -->
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-gamepad"></i> CyberKitty Run</h3>
+                    <span class="genero"><i class="fa-solid fa-tag"></i> Diversão</span>
+                    <div class="avaliacao-card"><i class="fa-solid fa-star"></i> 4.8/5.0</div>
+                    <p class="descricao-curta">Corra e salte pelas megacidades de neon como um gato cibernético de elite!</p>
+                    <div class="meta-card">
+                        <span><i class="fa-solid fa-calendar"></i> 2024</span>
+                        <span><i class="fa-solid fa-desktop"></i> PC, Mobile, Switch</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card do jogo 2: LIFE IS CONNECTION -->
+            <div class="card-jogo" dados-fala="Uma história emocionante! 💫" 
+                 dados-titulo="LIFE IS CONNECTION" 
+                 dados-genero="Escolhas" 
+                 dados-avaliacao="4.9"
+                 dados-descricao="Uma aventura narrativa focada na jovem Clara, que possui o dom de ver e manipular os fios invisíveis que conectam as pessoas e a natureza."
+                 dados-lancamento="2026"
+                 dados-plataformas="PC, PS5, Xbox">
+                
+                <div class="imagem-card imagem-real">
+                    <img src="assets/LifeIsConnection.png" alt="Life is Connection">
+                    <div class="sobreposicao-card">
+                        <i class="fa-solid fa-play"></i> Jogar Agora
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-gamepad"></i> LIFE IS CONNECTION</h3>
+                    <span class="genero"><i class="fa-solid fa-tag"></i> Escolhas</span>
+                    <div class="avaliacao-card"><i class="fa-solid fa-star"></i> 4.9/5.0</div>
+                    <p class="descricao-curta">Manipule conexões invisíveis e restaure o equilíbrio de uma cidade isolada!</p>
+                    <div class="meta-card">
+                        <span><i class="fa-solid fa-calendar"></i> 2026</span>
+                        <span><i class="fa-solid fa-desktop"></i> PC, PS5, Xbox</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card do jogo 3: SimuLife -->
+            <div class="card-jogo" dados-fala="Crie sua vida ideal! 🏠✨" 
+                 dados-titulo="SimuLife" 
+                 dados-genero="Simulação" 
+                 dados-avaliacao="4.7"
+                 dados-descricao="No jogo, você cria e controla personagens personalizáveis em um mundo vibrante e interativo."
+                 dados-lancamento="2024"
+                 dados-plataformas="PC, Mobile">
+                
+                <div class="imagem-card imagem-real">
+                    <img src="assets/SimuLife.png" alt="SimuLife">
+                    <div class="sobreposicao-card">
+                        <i class="fa-solid fa-play"></i> Jogar Agora
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-gamepad"></i> SimuLife</h3>
+                    <span class="genero"><i class="fa-solid fa-tag"></i> Simulação</span>
+                    <div class="avaliacao-card"><i class="fa-solid fa-star"></i> 4.7/5.0</div>
+                    <p class="descricao-curta">Crie personagens, construa casas e viva vidas incríveis!</p>
+                    <div class="meta-card">
+                        <span><i class="fa-solid fa-calendar"></i> 2024</span>
+                        <span><i class="fa-solid fa-desktop"></i> PC, Mobile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de trailer do YouTube -->
+    <section id="trailer">
+        <h2 class="titulo-secao texto-flutuante">TRAILER <span class="texto-neon">DESTAQUE</span></h2>
+        <div class="container-video">
+            <iframe 
+                src="https://www.youtube.com/embed/hYcpNzFNZrk?rel=0&modestbranding=1" 
+                title="PixelForge Trailer" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Seção de depoimentos da comunidade -->
+    <section id="comunidade">
+        <h2 class="titulo-secao texto-flutuante">COMENTÁRIOS DE <span class="texto-neon">PLAYERS</span></h2>
+        <div class="depoimentos">
+            <!-- Depoimento 1 -->
+            <div class="card-depoimento">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=ff6b6b" alt="User" class="avatar-cartoon">
+                <p>"Os gráficos são tão fofos que eu chorei de alegria! Melhor jogo do ano!"</p>
+                <h4>- Mascarada <i class="fa-solid fa-crown" style="color:gold"></i></h4>
+                <div class="avaliacao-usuario"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="card-depoimento">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ane&backgroundColor=b6e3f4" alt="User" class="avatar-cartoon">
+                <p>"PixelForge Studios tem a melhor vibe retro-moderna. Viciante demais!"</p>
+                <h4>- Docinho</h4>
+                <div class="avaliacao-usuario"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="card-depoimento">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zack&backgroundColor=c0aede" alt="User" class="avatar-cartoon">
+                <p>"Jogo perfeito para jogar com os amigos. A trilha sonora é incrível! 🎵"</p>
+                <h4>- FofoJogador</h4>
+                <div class="avaliacao-usuario"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+            </div>
+
+            <!-- Depoimento 4 -->
+            <div class="card-depoimento">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Luna&backgroundColor=ffd5dc" alt="User" class="avatar-cartoon">
+                <p>"Nunca vi um estúdio com tanto carinho nos detalhes. Recomendo 100%! 💜"</p>
+                <h4>- MarceloProPlayer</h4>
+                <div class="avaliacao-usuario"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+
+            <!-- Depoimento 5 -->
+            <div class="card-depoimento">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Max&backgroundColor=d4d4d4" alt="User" class="avatar-cartoon">
+                <p>"CyberKitty Run é viciante! Já passei 50 horas jogando e quero mais! 🐱"</p>
+                <h4>- Batatadoce <i class="fa-solid fa-trophy" style="color:gold"></i></h4>
+                <div class="avaliacao-usuario"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de suporte com formulário e API CEP -->
+    <section id="suporte">
+        <h2 class="titulo-secao texto-flutuante">SUPORTE</h2>
+        <form id="formulario-contato">
+            <!-- Campo Nome -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-user-tag"></i> Nome do Player</label>
+                <input type="text" id="nome" required placeholder="Digite seu nick...">
+            </div>
+            
+            <!-- Campo E-mail -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-at"></i> E-mail</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+            
+            <!-- Campo CEP com API -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-location-dot"></i> CEP</label>
+                <input type="text" id="cep" required placeholder="00000-000" maxlength="9">
+            </div>
+            
+            <!-- Campo Rua (preenchido automaticamente) -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-street-view"></i> Rua</label>
+                <input type="text" id="rua" readonly placeholder="Preenchido automaticamente">
+            </div>
+            
+            <!-- Campo Bairro (preenchido automaticamente) -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-building"></i> Bairro</label>
+                <input type="text" id="bairro" readonly placeholder="Preenchido automaticamente">
+            </div>
+            
+            <!-- Campo Cidade (preenchido automaticamente) -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-city"></i> Cidade</label>
+                <input type="text" id="cidade" readonly placeholder="Preenchido automaticamente">
+            </div>
+            
+            <!-- Campo Estado (preenchido automaticamente) -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-map"></i> Estado</label>
+                <input type="text" id="estado" readonly placeholder="UF">
+            </div>
+            
+            <!-- Campo Mensagem -->
+            <div class="grupo-campo">
+                <label><i class="fa-solid fa-comment-dots"></i> Mensagem</label>
+                <textarea id="mensagem" rows="5" required placeholder="Vamos criar algo épico?"></textarea>
+            </div>
+            
+            <!-- Botão Enviar -->
+            <button type="submit" class="botao-neon animacao-pulo">Enviar Mensagem <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+    </section>
+
+    <!-- Rodapé do site -->
+    <footer>
+        <p class="texto-flutuante">&copy; 2026 PixelForge Studios.
+        <!-- Ícones de redes sociais -->
+        <div class="icones-sociais">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/gustavxzy_/" target="_blank" class="icone-social" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/gustavo-accadrolli-5a6452322/" target="_blank" class="icone-social" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Gustavo231111" target="_blank" class="icone-social" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Arquivo JavaScript -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>

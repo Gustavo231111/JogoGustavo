@@ -24,6 +24,9 @@ A proposta é colocar em prática conhecimentos de HTML5, CSS e JavaScript na co
 <img width="1884" height="843" alt="suporte1Gu" src="https://github.com/user-attachments/assets/645bcc53-0e93-4e86-88e7-730ed837936b" />
 <img width="1901" height="922" alt="suporte2Gu" src="https://github.com/user-attachments/assets/9516dea7-37cb-4ff3-b341-e750ca692c3e" />
 
+# 🌗MODO ESCURO
+<img width="1898" height="915" alt="ModoEscuroGustavo" src="https://github.com/user-attachments/assets/7d6e1448-91f4-4763-bb33-ed8bd30579c4" />
+
 # 🛠️ TECNOLOGIAS UTILIZADAS
 🔹 HTML5
 
